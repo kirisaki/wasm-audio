@@ -4,7 +4,7 @@ const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin")
 
 module.exports = {
    entry: {
-    main: path.join(__dirname, './client/index.ts'),
+    main: path.join(__dirname, './client/index.tsx'),
   },
   output: {
     path: path.join(__dirname, 'dist'),
