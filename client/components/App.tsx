@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { Hello } from './Hello'
+import { Slidebar } from './Slidebar'
 
 export class App extends React.Component<{}, {}> {
   render() {
     return (
       <main>
-        <Hello compiler="TypeScript" framework="React" />
+        <Slidebar />
       </main>
     )
   }
