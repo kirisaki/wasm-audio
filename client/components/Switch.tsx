@@ -1,19 +1,13 @@
-import React from "react"
-import { useState, useEffect } from "react"
+import React, {Dispatch} from "react"
+import { SwitchPlaying, Actions } from "../reducer"
 
-export const Switch = () => {
-  const [play, setPlay] = useState(false)
-  const handler = () => {
-    setPlay(!play)
-  }
+type Props = {
+  playing: boolean;
+  dispatch: Dispatch<Actions>;
+}
 
-  useEffect (() => {
-    if(play){
-      console.log('nyaan')
-    }
-  })
-
+export const Switch: React.FC = ({playing, dispatch}: Props) => {
   return(
-    <button onClick={handler}>{play ? 'stop' : 'play'}</button>
+    <button onClick={() => dispatch({type: SwitchPlaying})}>{playing ? 'stop' : 'play'}</button>
   )
 }
