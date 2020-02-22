@@ -7,21 +7,24 @@ import { reducer, initial, StoreOsc, SwitchPlaying } from '../reducer'
 export const App = ({ wasm }) => {
   const [state, dispatch] = useReducer(reducer, initial)
   useEffect (() => {
-    console.log('nyaan')
     if(state.playing){
-      const osc = new wasm.Oscillator()
-      osc.set_gain(state.gain)
-      dispatch({type: StoreOsc, payload: osc})
+      if(state.osc){
+        state.osc.set_gain(state.gain)
+      } else {
+        const osc = new wasm.Oscillator()
+        osc.set_gain(state.gain)
+        dispatch({type: StoreOsc, payload: osc})
+      }
     } else {
       if(state.osc){
         state.osc.free()
         dispatch({type: StoreOsc, payload: null})
       }
     }
-  }, [state.playing])
+  }, [state.playing, state.gain])
   return (
     <main>
-      <Slidebar />
+      <Slidebar gain={state.gain} dispatch={dispatch} />
       <Switch playing={state.playing} dispatch={dispatch} />
     </main>
   )

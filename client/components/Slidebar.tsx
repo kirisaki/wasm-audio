@@ -1,12 +1,21 @@
-import React from "react"
+import React, {Dispatch} from "react"
 import { useState, useCallback } from "react"
+import {Actions, ChangeGain} from "../reducer"
 
-export const Slidebar = () => {
-  const [gain, setGain] = useState(0)
+type Props = {
+  gain: number;
+  dispatch: Dispatch<Actions>;
+}
+
+export const Slidebar: React.FC = ({gain, dispatch}: Props) => {
+  const [scale, setScale] = useState(Math.round(gain * 255))
   const handler = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       event.persist()
-      setGain(Number(event.target.value))
+      const newScale = Number(event.target.value)
+      setScale(newScale)
+      const newGain = newScale / 255.0
+      dispatch({type: ChangeGain, payload: newGain})
     }, [event]
   )
 
@@ -15,7 +24,7 @@ export const Slidebar = () => {
       type="range" 
       min="0"
       max="255" 
-      value={gain}
+      value={scale}
       onChange={handler}
       />[{gain}]</label>
   )
