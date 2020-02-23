@@ -43,6 +43,8 @@ impl Oscillator {
         } else {
             gain
         };
-        self.gain.gain().set_value(new_gain);
+        self.gain
+            .gain()
+            .set_target_at_time(new_gain, self.ctx.current_time() + 0.01, 0.05);
     }
 }

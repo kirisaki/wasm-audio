@@ -26,9 +26,6 @@ export const App = ({ wasm }) => {
     <main>
       <Slidebar gain={state.gain} dispatch={dispatch} />
       <Switch playing={state.playing} dispatch={dispatch} /><br />
-      <a href="https://github.com/kirisaki/wasm-audio/tree/736ba4f66aaef6d7f441f61a8eb6d3156b578f98">
-      The repository of this code is here✨
-      </a>
     </main>
   )
 }

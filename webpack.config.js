@@ -7,8 +7,8 @@ module.exports = {
     main: path.join(__dirname, './client/index.tsx'),
   },
   output: {
-    path: path.join(__dirname, 'docs'),
-    publicPath: './'
+    path: path.join(__dirname, 'dist'),
+    publicPath: '/'
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", "wasm"]
