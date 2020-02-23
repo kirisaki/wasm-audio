@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'docs'),
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx", "wasm"]
@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "client/index.html")
+      template: path.join(__dirname, "client/index.html"),
     }),
     new WasmPackPlugin({
       crateDirectory: path.join(__dirname, "src")
