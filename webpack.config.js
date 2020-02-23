@@ -7,7 +7,7 @@ module.exports = {
     main: path.join(__dirname, './client/index.tsx'),
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'docs'),
     publicPath: '/'
   },
   resolve: {

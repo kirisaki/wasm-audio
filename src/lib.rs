@@ -1,11 +1,5 @@
-extern crate wasm_bindgen;
 use wasm_bindgen::prelude::*;
 use web_sys::{AudioContext, OscillatorType};
-
-#[wasm_bindgen]
-pub fn greeting() -> String {
-    "nyaaaaan".to_string()
-}
 
 #[wasm_bindgen]
 pub struct Oscillator {
